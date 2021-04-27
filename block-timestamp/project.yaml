@@ -5,7 +5,9 @@ repository: "https://github.com/subquery/subql-examples"
 schema: "./schema.graphql"
 
 network:
-  endpoint: "ws://8.136.111.191:9944"
+# endpoint: "ws://vm1.k0s.io:9944"
+# endpoint: "ws://8.136.111.191:9944"
+  endpoint: "wss://staging-ws.nftmart.io"
   types:
     Approval:
       amount: Balance
@@ -65,7 +67,7 @@ network:
 dataSources:
   - name: runtime
     kind: substrate/Runtime
-    startBlock: 1
+    startBlock: 60000
     mapping:
       handlers:
         - handler: handleTimestampSet
@@ -73,3 +75,8 @@ dataSources:
           filter:
             module: timestamp
             method: set
+      # - handler: handleTimestampSet
+      #   kind: substrate/CallHandler
+      #   filter:
+      #     module: timestamp
+      #     method: set

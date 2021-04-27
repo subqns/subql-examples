@@ -7,3 +7,12 @@ type BlockTs @entity {
 
   timestamp: Date!
 }
+
+type BlockTimestamp @entity {
+  # BlockHash
+  id: ID!
+
+  blockHeight: BigInt!
+
+  timestamp: Date!
+}
